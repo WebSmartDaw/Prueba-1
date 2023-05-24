@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<ng-container *ngIf="visible">
+  <br>
+  <h1 class="title">Kanban Board</h1><br><br>
+  <br>
+  <div class="box">
+    <div *ngFor="let lista of listas">
+      <div class="box2" (click)="onclick()">
+        <h1 class="title"> {{lista}}</h1>
+        <app-tarea *ngFor="let tarea of filtrodetipodelista(lista)" [tarea]="tarea"></app-tarea>
+
+        <div class="box3" (click)="onclick()">
+          + Añadir Tarea Nueva...
+
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="visible == false">
+  <app-tarea-form [tareas]="tareas" (devuelvetareas)="muestratareas($event)" (cancelar)=" onclick()"></app-tarea-form>
+</ng-container>

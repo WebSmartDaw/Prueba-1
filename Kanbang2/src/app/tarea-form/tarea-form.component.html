@@ -1,0 +1,47 @@
+<br>
+<h1 class="title">Kanban Board</h1><br><br>
+<br>
+<div id="divform">
+  <form [formGroup]="loginForm!">
+    <div class="form">
+      <label for="inputEmail4">Titulo</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Titulo" formControlName="titulo">
+      <br>
+      <label for="inputState">Lugar</label>
+      <select formControlName="lista" id="inputState" class="form-control">
+        <option selected>{{k_PENDIENTES_LISTA1}}</option>
+        <option>{{k_PROGRESO_LISTA1}}</option>
+        <option>{{k_FINALIZADAS_LISTA1}}</option>
+      </select>
+
+      <br>
+      <label for="inputEmail4">Fecha fin</label>
+      <br>
+      <input type="date" class="form-control" id="inputEmail4" placeholder="URL" formControlName="fechaFin">
+      <br>
+      <label for="inputEmail4">URL Imagen</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="URL" formControlName="img">
+      <br>
+      <div class="box5">
+
+        <div *ngFor="let usuario of usua" (click)="deleteusuario()">
+          <img class="img tooltiptext " [src]="usuario.img" [title]="usuario.nick"> &nbsp;
+        </div>
+        <label for="inputEmail4" id="txtusu">Usuarios:&nbsp;&nbsp;&nbsp;</label>
+
+      </div>
+      <br>
+      &nbsp;&nbsp;<button type="submit" class="btn btn-primary" [disabled]="loginForm?.invalid"
+        (click)="guardar()">Gurdar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;<button type="button" class="btn btn-danger"
+        (click)="onclick()">Cancelar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;<button type="button" class="btn btn-info" (click)="mas()"><svg xmlns="http://www.w3.org/2000/svg"
+          width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+        </svg></button>&nbsp;&nbsp;
+    </div>
+
+  </form>
+
+</div>
